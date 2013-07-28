@@ -10,7 +10,8 @@ test -x "/usr/bin/vim" || echo "You need vim installed! Running 'sudo apt-get in
 clear
 echo "Welcome to the Capital Markets Academy Vim Improvement package!
 
-This will set up Vim with some basic settings handy for writing Python code, and install the following plugins:
+This will set up Vim with some basic settings handy for writing Python code,
+and install the following plugins:
 
 - pythogen - To manage other Vim plugins
 - vim-sensible - To enforce sane default settings for Vim
@@ -20,6 +21,8 @@ This will set up Vim with some basic settings handy for writing Python code, and
 - MiniBufExplorer - For showing tabs on multiple files
 - vim-pasta - Pasting in Vim with indenting adjusted to destination context
 - vcscommand - for integration with many version control systems
+- sideways - to move function arguments (and other delimited-by-something
+             items) left and right
 
 For more information on these plugins, you should check out their documentation online.
 
@@ -69,6 +72,9 @@ git clone https://github.com/sickill/vim-pasta.git
 echo "Installing vcscommand..."
 git clone http://repo.or.cz/r/vcscommand.git
 
+echo "Installing sideways..."
+git clone https://github.com/AndrewRadev/sideways.vim.git
+
 echo "Writing default .vimrc..."
 cat <<EOF > $HOME/.vimrc
 syntax enable "Make sure we use syntax highlighting
@@ -116,6 +122,10 @@ nmap <F3>      :TagbarToggle <CR>| " F3 Tagbar
 vmap <F3> <Esc>:TagbarToggle <CR>
 omap <F3> <Esc>:TagbarToggle <CR>
 map! <F3> <Esc>:TagbarToggle <CR>
+
+"Sideways
+nnoremap <c-h> :SidewaysLeft<cr>
+nnoremap <c-l> :SidewaysRight<cr>
 
 "   USING Vim to compare the differences between two files
 "   vi -d file1  file2  -- switch cursor to left or right window
