@@ -6,6 +6,7 @@ die() { echo "$@"; exit 1; }
 test -x "/usr/bin/git" || echo "You need git installed! Running 'sudo apt-get install git'" && sudo apt-get -y install git
 test -x "/usr/bin/curl" || echo "You need curl installed! Running 'sudo apt-get install curl'" && sudo apt-get -y install curl
 test -x "/usr/bin/vim" || echo "You need vim installed! Running 'sudo apt-get install vim'" && sudo apt-get -y install vim
+test -x "/usr/bin/ctags" || echo "You need ctags installed! Running 'sudo apt-get install ctags'" && sudo apt-get -y install ctags
 
 clear
 echo "Welcome to the Capital Markets Academy Vim Improvement package!
