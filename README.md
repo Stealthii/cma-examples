@@ -14,7 +14,7 @@ For those of you that are new to Github, there are a few ways you can get all
 the code examples shown here:
 
 - Download using the ZIP feature to the right (lazy)
-- Clone the repositoy on your computer using Git (recommended)
+- Clone the repository on your computer using Git (recommended)
 
 To use git to clone this repository, use the following command:
 
