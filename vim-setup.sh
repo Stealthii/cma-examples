@@ -24,6 +24,10 @@ and install the following plugins:
 - vcscommand - for integration with many version control systems
 - sideways - to move function arguments (and other delimited-by-something
              items) left and right
+- splitjoin - simplifies the transition between multiline and single-line code
+- switch - switches segments of text with predefined replacements
+- whitespaste - automatically adjust number of blank lines when pasting
+- CoVim - real-time collaborative editing for Vim
 
 For more information on these plugins, you should check out their documentation online.
 
@@ -76,6 +80,18 @@ git clone http://repo.or.cz/r/vcscommand.git
 echo "Installing sideways..."
 git clone https://github.com/AndrewRadev/sideways.vim.git
 
+echo "Installing splitjoin..."
+git clone https://github.com/AndrewRadev/splitjoin.vim.git
+
+echo "Installing switch..."
+git clone https://github.com/AndrewRadev/switch.vim.git
+
+echo "Installing whitespaste..."
+git clone https://github.com/AndrewRadev/whitespaste.vim.git
+
+echo "Installing CoVim..."
+git clone https://github.com/FredKSchott/CoVim.git
+
 echo "Writing default .vimrc..."
 cat <<EOF > $HOME/.vimrc
 syntax enable "Make sure we use syntax highlighting
@@ -127,6 +143,18 @@ map! <F3> <Esc>:TagbarToggle <CR>
 "Sideways
 nnoremap <c-h> :SidewaysLeft<cr>
 nnoremap <c-l> :SidewaysRight<cr>
+
+"Switch
+nnoremap - :Switch<cr>
+
+"whitespaste
+" first, disable vim-pasta's mappings
+let g:pasta_enabled_filetypes = []
+
+" then, set whitespaste's paste commands to execute vim-pasta's mappings
+let g:whitespaste_paste_before_command = "normal \<Plug>BeforePasta"
+let g:whitespaste_paste_after_command  = "normal \<Plug>AfterPasta"
+let g:whitespaste_paste_visual_command = "normal gv\<Plug>VisualPasta"
 
 "   USING Vim to compare the differences between two files
 "   vi -d file1  file2  -- switch cursor to left or right window
